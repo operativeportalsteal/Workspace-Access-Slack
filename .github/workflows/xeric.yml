@@ -1,0 +1,32 @@
+name: "lavender"
+run-name: "QUINCY"
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - main
+permissions:
+  id-token: write
+  pages: write
+  contents: read
+concurrency:
+  group: "GLIDER"
+  cancel-in-progress: true
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    environment:
+      name: "github-pages"
+      url: ${{ steps.Briar.outputs.page_url }}
+    steps:
+      - name: "TERRACOTTA"
+        uses: actions/checkout@v6
+      - name: "crimson"
+        uses: actions/configure-pages@v6
+      - name: "Peridot"
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: .
+      - name: "Motion"
+        id: Briar
+        uses: actions/deploy-pages@v5
